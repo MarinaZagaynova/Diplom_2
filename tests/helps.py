@@ -1,6 +1,8 @@
+import random
+
 import requests
 
-from tests.data import email, password, name
+from tests.data import password, name
 from tests.endpoints import Endpoints
 
 
@@ -18,7 +20,7 @@ def get_ingredients():
 
 def success_registration():
     payload = {
-        "email": email,
+        "email": f"new{random.randint(1, 100000)}@gmail.com",
         "password": password,
         "name": name}
     return requests.post(Endpoints.url + Endpoints.registration, json=payload)

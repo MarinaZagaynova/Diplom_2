@@ -1,3 +1,5 @@
+import random
+
 import pytest
 import requests as requests
 import allure
@@ -12,7 +14,7 @@ class TestRegistr:
     @allure.description('Создание пользователя реализовано с использованием рандомных валидных значений')
     def test_creating_unique_user_success(self):
         payload = {
-            "email": email,
+            "email": f"new{random.randint(1, 100000)}@gmail.com",
             "password": password,
             "name": name
         }
